@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "title": "Producto A",
+      "description": "Descripción del Producto A",
+      "price": 19.99,
+      "thumbnail": "imagenA.jpg",
+      "code": "P002",
+      "stock": 80
+    },
+    {
+      "id": 2,
+      "title": "Producto B",
+      "description": "Descripción del Producto B",
+      "price": 24.99,
+      "thumbnail": "imagenB.jpg",
+      "code": "P003",
+      "stock": 75
+    },
+    {
+      "id": 3,
+      "title": "Producto C",
+      "description": "Descripción del Producto C",
+      "price": 14.99,
+      "thumbnail": "imagenC.jpg",
+      "code": "P004",
+      "stock": 60
+    },
+    {
+      "id": 4,
+      "title": "Producto D",
+      "description": "Descripción del Producto D",
+      "price": 34.99,
+      "thumbnail": "imagenD.jpg",
+      "code": "P005",
+      "stock": 50
+    },
+    {
+      "id": 5,
+      "title": "Producto E",
+      "description": "Descripción del Producto E",
+      "price": 9.99,
+      "thumbnail": "imagenE.jpg",
+      "code": "P006",
+      "stock": 95
+    },
+    {
+      "id": 6,
+      "title": "Producto F",
+      "description": "Descripción del Producto F",
+      "price": 29.99,
+      "thumbnail": "imagenF.jpg",
+      "code": "P007",
+      "stock": 70
+    },
+    {
+      "id": 7,
+      "title": "Producto G",
+      "description": "Descripción del Producto G",
+      "price": 17.99,
+      "thumbnail": "imagenG.jpg",
+      "code": "P008",
+      "stock": 85
+    },
+    {
+      "id": 8,
+      "title": "Producto H",
+      "description": "Descripción del Producto H",
+      "price": 22.99,
+      "thumbnail": "imagenH.jpg",
+      "code": "P009",
+      "stock": 45
+    },
+    {
+      "id": 9,
+      "title": "Producto I",
+      "description": "Descripción del Producto I",
+      "price": 12.99,
+      "thumbnail": "imagenI.jpg",
+      "code": "P010",
+      "stock": 55
+    },
+    {
+      "id": 10,
+      "title": "Producto J",
+      "description": "Descripción del Producto J",
+      "price": 39.99,
+      "thumbnail": "imagenJ.jpg",
+      "code": "P011",
+      "stock": 65
+    }
+  ]
