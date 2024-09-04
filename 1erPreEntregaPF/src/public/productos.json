@@ -1,0 +1,82 @@
+  [
+    {
+      "nombre": "Iscay",
+      "bodega": "Trapiche",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2018",
+      "precio": 27510
+    },
+    {
+      "nombre": "Adrianna Vineyard",
+      "bodega": "Catena Zapata",
+      "tipo": "Blanco",
+      "variedad": "Chardonnay",
+      "año": "2019",
+      "precio": 24850
+    },
+    {
+      "nombre": "Nosotros",
+      "bodega": "Susana Balbo",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2019",
+      "precio": 18500
+    },
+    {
+      "nombre": "Alma Mora",
+      "bodega": "Finca Las Moras",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2020",
+      "precio": 1245
+    },
+    {
+      "nombre": "Rutini",
+      "bodega": "La Rural",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2020",
+      "precio": 2550
+    },
+    {
+      "nombre": "Latitud 33°",
+      "bodega": "33°",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2018",
+      "precio": 1650
+    },
+    {
+      "nombre": "Los Haroldos",
+      "bodega": "Haroldos",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": "2019",
+      "precio": 2280
+    },
+    {
+      "nombre": "Etchart Privado",
+      "bodega": "Etchart",
+      "tipo": "Blanco",
+      "variedad": "Torrontés",
+      "año": "2018",
+      "precio": 950
+    },
+    {
+      "nombre": "Trumpeter",
+      "bodega": "La Rural",
+      "tipo": "Tinto",
+      "variedad": "Malbec",
+      "año": 2019,
+      "precio": 2280
+    },
+    {
+      "nombre": "Don Valentin",
+      "bodega": "Bianchi",
+      "tipo": "Tinto",
+      "variedad": "Malbec Lacrado",
+      "año": "2020",
+      "precio": 1050
+    }
+  ]
