@@ -6,9 +6,17 @@ const router = Router();
 router.get("/", async (req, res) => {
   try {
     const product = await productDao.findProduct();
-
+    const productResult = {
+      payload: product.docs,
+      nextPage: product.nextPage,
+      prevPage: product.prevPage,
+      hasNextPage: product.hasNextPage,
+      hasPrevPage: product.hasNextPage,
+      nextLink: `/api/product/${product.nextPage}`,
+      prevLink: `/api/product/${product.prevLink}`,
+    };
     res.json({
-      product,
+      productResult,
       message: "OK products",
     });
   } catch (error) {
@@ -68,3 +76,5 @@ router.delete("/:id", async (req, res) => {
     message: "Error update";
   }
 });
+
+export default Router;

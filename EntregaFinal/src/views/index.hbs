@@ -4,23 +4,8 @@
       <div class="titleContainer">
         <h1 class="title">Bienvenido a El Bodegon!</h1>
       </div>
-      <div class="titleContainer">
-        <a class="link" href="/productos" class="linkCatalogo">
-          Ver Catalogo en tiempo real
-        </a>
-      </div>
     </div>
-    <div class="chatContainer">
-      <div class="chat">
-        <h2>Chat en vivo</h2>
-        <div class="chatContent" id="chatContent">
-        </div>
-        <div class="containerTextChat">
-          <input class="textChat" type="text" id="textChat">
-          <button id="enviar">Enviar</button>
-        </div>
-      </div>
-    </div>
+   
   </div>
   <div class="containProductos" id="containProducts">
     {{#each products}}
@@ -37,8 +22,6 @@
       </div>
     {{/each}}
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="/socket.io/socket.io.js"></script>
   <script src="/js/main.js"></script>
 
 </div>
