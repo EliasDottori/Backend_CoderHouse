@@ -40,13 +40,11 @@ router.get("/", async (req, res) => {
       currentPage: parsedPage,
       hasNextPage: parsedPage < totalPages,
       hasPrevPage: parsedPage > 1,
+      prevLink:
+        parsedPage > 1 ? `/?page=${parsedPage - 1}&limit=${parsedLimit}` : null,
       nextLink:
         parsedPage < totalPages
-          ? `/api/product?page=${parsedPage + 1}&limit=${parsedLimit}`
-          : null,
-      prevLink:
-        parsedPage > 1
-          ? `/api/product?page=${parsedPage - 1}&limit=${parsedLimit}`
+          ? `/?page=${parsedPage + 1}&limit=${parsedLimit}`
           : null,
     };
     console.log("asdasfd", productResult);
