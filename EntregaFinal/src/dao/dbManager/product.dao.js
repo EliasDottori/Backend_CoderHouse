@@ -1,8 +1,13 @@
 import { productModel } from "../models/product.model.js";
 
 class productDao {
-  async findProduct() {
-    return await productModel.find().lean();
+  async findProduct(filter, limit, skip, sort) {
+    return await productModel
+      .find(filter)
+      .sort(sort)
+      .limit(limit)
+      .skip(skip)
+      .lean();
   }
 
   async createProduct() {

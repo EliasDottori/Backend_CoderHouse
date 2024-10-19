@@ -5,24 +5,52 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   try {
-    const product = await productDao.findProduct();
+    const { limit = 1, page = 1, query = "rutini", sort } = req.query;
+
+    const parsedLimit = parseInt(limit, 10);
+    const parsedPage = parseInt(page, 10);
+
+    const skip = (parsedPage - 1) * parsedLimit;
+
+    const filter = query ? { name: { $regex: query, $options: "i" } } : {};
+    const sortOptions =
+      sort === "asc" ? { price: 1 } : sort === "desc" ? { price: -1 } : {};
+
+    const products = await productDao.findProduct(
+      filter,
+      parsedLimit,
+      skip,
+      sortOptions
+    );
+
+    const totalProducts = await productModel.countDocuments(filter);
+    const totalPages = Math.ceil(totalProducts / parsedLimit);
+
     const productResult = {
-      payload: product.docs,
-      nextPage: product.nextPage,
-      prevPage: product.prevPage,
-      hasNextPage: product.hasNextPage,
-      hasPrevPage: product.hasNextPage,
-      nextLink: `/api/product/${product.nextPage}`,
-      prevLink: `/api/product/${product.prevLink}`,
+      payload: products,
+      totalProducts,
+      totalPages,
+      currentPage: parsedPage,
+      hasNextPage: parsedPage < totalPages,
+      hasPrevPage: parsedPage > 1,
+      nextLink:
+        parsedPage < totalPages
+          ? `/api/product?page=${parsedPage + 1}&limit=${parsedLimit}`
+          : null,
+      prevLink:
+        parsedPage > 1
+          ? `/api/product?page=${parsedPage - 1}&limit=${parsedLimit}`
+          : null,
     };
+
     res.json({
       productResult,
       message: "OK products",
     });
   } catch (error) {
     console.log(error);
-    res.json({
-      error,
+    res.status(500).json({
+      error: error.message,
       message: "Error Product",
     });
   }
