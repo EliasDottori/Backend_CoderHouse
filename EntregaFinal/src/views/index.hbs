@@ -5,11 +5,14 @@
         <h1 class="title">Bienvenido a El Bodegon!</h1>
       </div>
     </div>
-   
+   <div class="numberPage"> Pagina actual: {{ productResult.currentPage }} </div>
+ 
   </div>
-  <div class="containerProducts">
+   <div class="containerProducts">
     {{log prevLink}}
-    <a class="buttonPage" href="{{ productResult.prevLink }}"><</a>
+      <a class="buttonPage" href="{{ productResult.prevLink }}"><</a>
+      
+    
     
       <div class="containProducts" id="containProducts">
         {{#each productResult.payload }}
@@ -26,7 +29,8 @@
           </div>
         {{/each}}
       </div>
-    <a class="buttonPage" href="{{ productResult.nextLink }}">></a>
+    
+      <a class="buttonPage" href="{{ productResult.nextLink }}">></a>
     
     
   </div>
