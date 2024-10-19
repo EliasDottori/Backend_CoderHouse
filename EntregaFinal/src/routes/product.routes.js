@@ -1,21 +1,29 @@
 import { Router } from "express";
-import productDao from "../dao/dbManager/product.dao.js";
+import ProductDao from "../dao/dbManager/product.dao.js";
+import { productModel } from "../dao/models/product.model.js";
 
 const router = Router();
+const productDao = new ProductDao();
 
 router.get("/", async (req, res) => {
   try {
-    const { limit = 1, page = 1, query = "rutini", sort } = req.query;
+    console.log("1111");
+    const { limit = 10, page = 1, query = "", sort } = req.query;
 
     const parsedLimit = parseInt(limit, 10);
     const parsedPage = parseInt(page, 10);
 
     const skip = (parsedPage - 1) * parsedLimit;
 
-    const filter = query ? { name: { $regex: query, $options: "i" } } : {};
+    const filter = query ? { nombre: { $regex: query, $options: "i" } } : {};
+
     const sortOptions =
       sort === "asc" ? { price: 1 } : sort === "desc" ? { price: -1 } : {};
 
+    console.log(filter);
+    console.log(parsedLimit);
+    console.log(skip);
+    console.log(sortOptions);
     const products = await productDao.findProduct(
       filter,
       parsedLimit,
@@ -33,20 +41,17 @@ router.get("/", async (req, res) => {
       currentPage: parsedPage,
       hasNextPage: parsedPage < totalPages,
       hasPrevPage: parsedPage > 1,
-      nextLink:
-        parsedPage < totalPages
-          ? `/api/product?page=${parsedPage + 1}&limit=${parsedLimit}`
-          : null,
       prevLink:
         parsedPage > 1
-          ? `/api/product?page=${parsedPage - 1}&limit=${parsedLimit}`
+          ? `/products/?page=${parsedPage - 1}&limit=${parsedLimit}`
+          : null,
+      nextLink:
+        parsedPage < totalPages
+          ? `/products/?page=${parsedPage + 1}&limit=${parsedLimit}`
           : null,
     };
-
-    res.json({
-      productResult,
-      message: "OK products",
-    });
+    console.log(productResult);
+    res.render("productos", { productResult });
   } catch (error) {
     console.log(error);
     res.status(500).json({
@@ -105,4 +110,4 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-export default Router;
+export default router;

@@ -7,7 +7,7 @@ import productsRouter from "./routes/product.routes.js";
 import { password, db_name, port } from "./env.js";
 
 const app = express();
-const httpServer = app.listen(port, () => {
+app.listen(port, () => {
   console.log(`Servidor online! Vínculo: http://localhost:${port}`);
 });
 
@@ -27,8 +27,8 @@ app.set("views", `${__dirname}/views`);
 
 app.use(express.static(`${__dirname}/public`));
 
-app.use("/api/products", productsRouter);
 app.use("/", viewRouter);
+app.use("/products", productsRouter);
 
 mongoose
   .connect(
@@ -39,7 +39,6 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-// const io = new Server(httpServer);
 //socket com
 
 // let messages = [];

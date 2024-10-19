@@ -1,17 +1,53 @@
-<div class="container">
-    <div class="form">
-        <h3>Cargar Producto</h3>
-        <div><p>Nombre</p>
-        <input type="text" name="nombre" id="nombre"></div>
-        <div><p>Bodega</p><input type="text" name="bodega" id="bodega"></div>
-        <div><p>Tipo</p><input type="text" name="tipo" id="tipo"></div>
-        <div><p>Variedad</p><input type="text" name="variedad" id="variedad"></div>
-        <div><p>Año</p><input type="number" name="año" id="ano"></div>
-        <div><p>Precio</p><input type="number" name="precio" id="precio"></div>
-        <button id="agregarProducto">Agregar Producto</button>
+<div class="layout">
+  <div class="containerIndex">
+    <div>
+      <div class="titleContainer">
+        <a href="/" class="title">Bienvenido a El Bodegon!</a>
+      </div>
     </div>
-    <div class="containProductos" id="containProducts">
-        
+    <div class="containerOptions">
+      <div> Nombre <input type="text" id="nameProduct"></div>
+      
+      <div class="numberPage"> Pagina {{ productResult.currentPage }}/{{ productResult.totalPages }} </div>
+      
+      <div>Ordenar <select name="select">
+        <option value="asc" selected>Ascendente</option>
+        <option value="des" >Descendente</option>
+      </select></div>
+      <button>Listar</button>
     </div>
-  <script src="./js/productos.js"></script>
+   
+  </div>
+   <div class="containerProducts">
+      {{#if productResult.hasPrevPage}}
+        <a class="buttonPage" href="{{ productResult.prevLink }}"><</a>
+      {{else}}
+       <a class="buttonPage"></a>
+      {{/if}}
+    
+      <div class="containProducts" id="containProducts">
+        {{#each productResult.payload }}
+          <div class="producto">
+            <h2> {{this.nombre}} </h2>
+            <div>
+              <p> Bodega: {{this.bodega}} </p>
+              <p> Tipo: {{this.tipo}} </p>
+              <p> Variedad: {{this.variedad}} </p>
+              <p> Año: {{this.año}} </p>
+            </div>
+            <h3> Precio: ${{this.precio}},00 </h3>
+            <button id="addToCartBtn" data-id="{{this._id}}" data-name="{{this.nombre}}" data-price="{{this.precio}}">Agregar al carrito</button>
+          </div>
+        {{/each}}
+      </div>
+    
+    {{#if productResult.hasNextPage}}
+         <a class="buttonPage" href="{{ productResult.nextLink }}">></a>
+          {{else}}
+       <a class="buttonPage"></a>
+      {{/if}}
+    
+  </div>
+  <script src="/js/productos.js"></script>
+
 </div>

@@ -1,13 +1,31 @@
+
 *{
     margin: 0;
     padding: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+a{
+    text-decoration: none;
+    
+} 
+
+.btnprod{
+    font-size: 80px;
+    border: 1px solid black;
+    border-radius: 40px;
+}
+
 .layout{
     width: 80%;
     height: 80vh;
     margin: 0 auto;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .titleContainer{
@@ -90,7 +108,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
 
 }
 
@@ -99,4 +116,12 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+}
+
+.containerOptions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
 }

@@ -1,39 +1,15 @@
-<div class="layout">
+<div class="layout flex">
   <div class="containerIndex">
     <div>
       <div class="titleContainer">
-        <h1 class="title">Bienvenido a El Bodegon!</h1>
+        <a href="/" class="title">Bienvenido a El Bodegon!</a>
       </div>
     </div>
-   <div class="numberPage"> Pagina actual: {{ productResult.currentPage }} </div>
+    <div class="titleContainer">
+      <a href="/products/?page=1&limit=3" class="btnprod">Ver Productos</a>
+    </div>
+   
  
-  </div>
-   <div class="containerProducts">
-    {{log prevLink}}
-      <a class="buttonPage" href="{{ productResult.prevLink }}"><</a>
-      
-    
-    
-      <div class="containProducts" id="containProducts">
-        {{#each productResult.payload }}
-          <div class="producto">
-            <h2> {{this.nombre}} </h2>
-            <div>
-              <p> Bodega: {{this.bodega}} </p>
-              <p> Tipo: {{this.tipo}} </p>
-              <p> Variedad: {{this.variedad}} </p>
-              <p> Año: {{this.año}} </p>
-            </div>
-            <h3> Precio: ${{this.precio}},00 </h3>
-            <button id="addToCartBtn" data-id="{{this._id}}" data-name="{{this.nombre}}" data-price="{{this.precio}}">Agregar al carrito</button>
-          </div>
-        {{/each}}
-      </div>
-    
-      <a class="buttonPage" href="{{ productResult.nextLink }}">></a>
-    
-    
-  </div>
   <script src="/js/main.js"></script>
 
 </div>
