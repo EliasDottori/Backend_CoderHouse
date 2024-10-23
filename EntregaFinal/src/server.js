@@ -5,6 +5,8 @@ import __dirname from "./utils.js";
 import viewRouter from "./routes/view.routes.js";
 import productsRouter from "./routes/product.routes.js";
 import { password, db_name, port } from "./env.js";
+import singleProductRouter from "./routes/singleProduct.routes.js";
+import cartRouter from "./routes/cart.routes.js";
 
 const app = express();
 app.listen(port, () => {
@@ -19,6 +21,10 @@ app.engine(
   handlebars.engine({
     extname: "hbs",
     defaultLayout: "main",
+    runtimeOptions: {
+      allowProtoPropertiesByDefault: true,
+      allowProtoMethodsByDefault: true,
+    },
   })
 );
 
@@ -28,7 +34,9 @@ app.set("views", `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
 
 app.use("/", viewRouter);
+app.use("/singleProduct", singleProductRouter);
 app.use("/products", productsRouter);
+app.use("/cart", cartRouter);
 
 mongoose
   .connect(
@@ -38,37 +46,3 @@ mongoose
     console.log("db coneccted");
   })
   .catch((error) => console.log(error));
-
-//socket com
-
-// let messages = [];
-
-// io.on("connection", (socket) => {
-//   console.log("nueva conexion");
-
-//   socket.on("message", async (data) => {
-//     try {
-//       const message = new messageModel({
-//         message: data.message,
-//         user: data.user,
-//         timestamp: new Date(),
-//       });
-//       await message.save();
-//       io.emit("messagesLogs", await messageModel.find());
-//     } catch (error) {
-//       console.error(error);
-//     }
-//   });
-
-//   socket.emit("server_message", "mensaje enviado desde el server");
-
-//   socket.on("mensProduct", (data) => {
-//     console.log(data);
-//   });
-
-//   socket.on("productoNuevo", (data) => {
-//     console.log(data);
-//     productosNuevos.push(data);
-//     socket.emit("productosNuevos", productosNuevos);
-//   });
-// });

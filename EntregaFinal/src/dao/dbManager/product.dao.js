@@ -10,6 +10,10 @@ class productDao {
       .lean();
   }
 
+  async findProductbyID(_id) {
+    return await productModel.findById({ _id });
+  }
+
   async createProduct() {
     return await productModel.create(product);
   }

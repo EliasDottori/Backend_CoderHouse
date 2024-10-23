@@ -1,10 +1,10 @@
-import { model } from "mongoose";
+import { cartModel } from "../models/cart.model.js";
 
-const Cart = model("Cart");
+const Cart = cartModel;
 
 class cartDao {
   async getCartById(id) {
-    return await Cart.findOne({ id });
+    return await cartModel.findOne({ id }).populate("products.product");
   }
 
   async createCart(id, products) {
@@ -17,4 +17,4 @@ class cartDao {
   }
 }
 
-export default cartDao;
+export default new cartDao();

@@ -1,0 +1,26 @@
+<div class="layout flex">
+  <div class="containerIndex">
+    <div>
+      <div class="titleContainer">
+        <a href="/" class="title">Bienvenido a El Bodegon!</a>
+      </div>
+    </div>
+    <div>
+       <div class="producto">
+            <h2> {{singleProduct.nombre}} </h2>
+            <div>
+              <p> Bodega: {{singleProduct.bodega}} </p>
+              <p> Tipo: {{singleProduct.tipo}} </p>
+              <p> Variedad: {{singleProduct.variedad}} </p>
+              <p> Año: {{singleProduct.año}} </p>
+            </div>
+            <h3> Precio: ${{singleProduct.precio}},00 </h3>
+             <button class="addToCart" data-id="{{singleProduct._id}}">
+          Agregar al carrito
+        </button>
+          </div>
+    </div>
+ 
+  <script src="/js/main.js"></script>
+
+</div>

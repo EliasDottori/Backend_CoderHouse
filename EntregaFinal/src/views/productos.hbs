@@ -10,11 +10,13 @@
       
       <div class="numberPage"> Pagina {{ productResult.currentPage }}/{{ productResult.totalPages }} </div>
       
-      <div>Ordenar <select name="select">
-        <option value="asc" selected>Ascendente</option>
-        <option value="des" >Descendente</option>
-      </select></div>
-      <button>Listar</button>
+      <div>Ordenar 
+        <select name="select">
+          <option value="asc" selected>Ascendente</option>
+          <option value="des" >Descendente</option>
+        </select>
+      </div>
+      <a href="?page=1&limit=3&sort=asc&query=rutini">Listar</a>
     </div>
    
   </div>
@@ -36,7 +38,7 @@
               <p> Año: {{this.año}} </p>
             </div>
             <h3> Precio: ${{this.precio}},00 </h3>
-            <button id="addToCartBtn" data-id="{{this._id}}" data-name="{{this.nombre}}" data-price="{{this.precio}}">Agregar al carrito</button>
+            <a id="addToCartBtn" href="/singleProduct/{{ this._id }}" >Ver Producto</a>
           </div>
         {{/each}}
       </div>
