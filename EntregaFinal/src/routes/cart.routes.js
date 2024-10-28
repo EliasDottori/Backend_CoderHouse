@@ -9,7 +9,7 @@ router.get("/:cid", async (req, res) => {
     const { cid } = req.params;
     const cart = await cartDao.getCartById(cid);
     if (!cart) return res.status(404).json({ error: "Carrito no encontrado" });
-    res.json(cart);
+    res.render("cart", { cart });
   } catch (error) {
     console.error(error);
     res.status(500).send("Error interno del servidor");
@@ -20,10 +20,8 @@ router.post("/", async (req, res) => {
   try {
     const { id, product, quantity } = req.body;
     const productId = new mongoose.Types.ObjectId(product);
-    console.log(1, productId);
 
     const cart = await cartDao.getCartById(id);
-
     if (!cart) {
       const nuevoCart = await cartDao.createCart(id, [
         { product: productId, quantity },
@@ -31,7 +29,7 @@ router.post("/", async (req, res) => {
       return res.status(201).json(nuevoCart);
     } else {
       const existingProductIndex = cart.products.findIndex(
-        (item) => item.product.toString() === productId.toString()
+        (item) => item.product._id.toString() === productId.toString()
       );
 
       if (existingProductIndex !== -1) {

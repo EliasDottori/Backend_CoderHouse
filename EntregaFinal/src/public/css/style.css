@@ -36,6 +36,15 @@ a{
     align-items: center;
 }
 
+.cartContainer{
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 .title{
     font-size: 72px;
 

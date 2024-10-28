@@ -3,21 +3,24 @@
     <div>
       <div class="titleContainer">
         <a href="/" class="title">Bienvenido a El Bodegon!</a>
+        <div class="cartContainer"><a href="/cart/1">Ver Carrito</a></div>
       </div>
     </div>
     <div class="containerOptions">
-      <div> Nombre <input type="text" id="nameProduct"></div>
-      
-      <div class="numberPage"> Pagina {{ productResult.currentPage }}/{{ productResult.totalPages }} </div>
-      
-      <div>Ordenar 
-        <select name="select">
-          <option value="asc" selected>Ascendente</option>
-          <option value="des" >Descendente</option>
-        </select>
-      </div>
-      <a href="?page=1&limit=3&sort=asc&query=rutini">Listar</a>
-    </div>
+  <div> Nombre <input type="text" id="nameProduct"></div>
+  
+  <div class="numberPage"> Pagina {{ productResult.currentPage }}/{{ productResult.totalPages }} </div>
+  
+  <div>Ordenar 
+    <select id="sortOrder" name="select">
+      <option value="asc" selected>Ascendente</option>
+      <option value="des">Descendente</option>
+    </select>
+  </div>
+  
+  <a href="#" id="listLink">Listar</a>
+</div>
+
    
   </div>
    <div class="containerProducts">
